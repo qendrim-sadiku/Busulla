@@ -7,7 +7,6 @@
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
 
@@ -245,6 +244,7 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
     margin-bottom: 38px; 
   }
   .testimonial {
+
      @mixin heading {
       font-family: $font-family;
       font-size:40px;
@@ -285,6 +285,9 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
         opacity: 0.8;
         @include transition(all 0.3s ease-in-out);
       }
+    }
+     img {
+      max-width: 100%;
     }
   }
   .clients-logos {
@@ -579,32 +582,23 @@ footer {
     margin-bottom:204px;
     a {
       clear: both;
-      i {
-        margin-left: 23px;
-        line-height: 24px;
-        background:$black;
-        border-radius:5px;
-        width: 24px;
-        height: 24px;
-        background:$black;
-        color: $white;
-        opacity: 0.72;
-        &:hover {
-          opacity: 0.5;
-           @include transition(all 0.3s ease-in-out);
-        }
-      }     
+      
+      img {
+        margin-left:23px;
+        margin-bottom: 308px;
+      }
     }    
-    .contact-a {
-      font-family: $font-family;      
-      font-size:18px;
+    .contact {     
+      font-family: $font-family;
+      font-size: 18px;
+      font-weight: normal;
+      line-height: 1.78;
       opacity: 0.5;
       color: $black;
-      
-      float: right;
-      margin-top: 317px;
-    }
-      
-           
+      margin-left: 100px;
+      &:hover {
+        text-decoration: none;
+      }      
+    }                 
   } 
 }

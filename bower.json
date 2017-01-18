@@ -1,12 +1,11 @@
 {
-  "name": "busulla",
+  "name": "y",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1",
-    "font-awesome": "^4.7.0",
-    "components-font-awesome": "^4.7.0",
-    "bxslider-4": "bxSlider#^4.2.5"
+    "SourceSansPro": "*",
+    "bootstrap-sass": "^3.3.7",
+    "bxslider-4": "bxSlider#^4.2.5",
+    "mocha": "^3.2.0"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -21,15 +20,21 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
-  "description": "",
-  "main": "",
-  "license": "MIT",
-  "homepage": "",
+  "description": "y",
+  "main": "y",
+  "license": "y",
+  "homepage": "y",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
+  ],
+  "authors": [
+    "y"
+  ],
+  "keywords": [
+    "y"
   ]
 }
