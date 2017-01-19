@@ -13,7 +13,7 @@
 //  Table of Contents:
 //
 //   1. Global
-//   2.Info-section 
+//   2.Header 
 //   3.Presentation-Section 
 //   4.Download-section 
 //   5.Client Section 
@@ -28,14 +28,17 @@ $font-family: 'Source Sans Pro', sans-serif;
 $second-font-family: 'Source Sans Pro', sans-serif;
 
 
-$phone-breakpoint: "screen and (max-width: 320px)";
-$tablet-breakpoint: "screen and (max-width: 768px)";
-$laptop-breakpoint: "screen and (max-width: 1024px)";
-$desktop-breakpoint: "screen and (max-width: 1200px)";
-$large-desktop-breakpoint: "screen and (max-width: 1444px)";
+
+
 
 @mixin responsive($breakpoint) {
-  @if $breakpoint == "small" {
+  @if $breakpoint == "xs-small" {
+    @media (max-width: 400px) {
+      @content;
+    }
+  }
+
+   @else if $breakpoint == "small" {
     @media (max-width: 767px) {
       @content;
     }
@@ -71,67 +74,108 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
 
 
 /*-------------------------------------------------*/
-/* =  2.Info-section
+/* =  2.Header
 /*-------------------------------------------------*/
-.info-section {
-   width: 100%; 
-   background-color:$base-color;
+header {
+   
+   
    display: flex;
    margin-bottom: 109px;
   .content-s {
+    background-color:$base-color;
     width: 50%;
     float: left; 
-    height: auto;        
-   
-    margin-top:0;             
-   
-    h2 {
+    height: auto;           
+    margin-top:0; 
+                  
+   .logo {
+     h2 {
       font-family: $second-font-family;
       color: $white;
       font-weight: 800;
       margin-left: 37px;
       margin-top: 31px;
-    }   
-    @mixin search-text {
-      font-family: $font-family;
+      max-width: 521px;
+      }   
+    }
+    h4 {
       font-size: 50px;
-      line-height: 60px;
+      font-family: $font-family;
       font-weight: 300;
       color: $white;
+      line-height:1.2;
       margin-left: 148px;
-      margin-bottom: 0px;
-      margin-top: 216px;
-    }
-    .search {
-      @include search-text;
-    }
- 
-    @mixin info-text {
-      margin-top: 49px;
+      margin-top: 312px; 
       margin-bottom: 40px;
-      color: $white;
-      float: left;
-      margin-left: 148px;
+    } 
+    @mixin button {
+      padding-left: 38.5px;
+      padding-right: 38.5px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-radius:3px;
       font-size: 18px;
-      font-weight:500;
       font-family: $font-family;
-    }
-    p {
-      @include info-text;
-      span {
-        opacity: 0.8;
-        border-bottom: 2px solid $white;
+      line-height: 1.44;
+      text-align:center;
+      border:1.5px solid $white ;
+      color: $white;
+      &:hover {
+        text-decoration: none;
       }
     }
-   
+    .button {
+      @include button;
+      margin-left: 145px;
+      margin-top: 45px;
+
+    }  
+    .social-media {
+      margin-top: 328px;
+      margin-bottom: 48px;
+      margin-left: 135px;
+      img {
+        margin-left:23px;
+        max-width: 100%;
+      }
+    }
+    .arrow-black {
+       margin-right:104px;
+       margin-bottom: 26px;
+      float: right
+     
+    }
+    @include responsive(medium) {
+      h4 {
+        margin-left: 10px;
+      }
+      .button {
+        margin-left: 10px;
+
+      }
+      .arrow-black {
+        display: none;
+      }
+
+    }  
+    @include responsive(small) {
+      width: 100%;
+      float: none;
+    }    
   }
-  .photo-s {    
+  .photo-s {   
+
     width: 50%;
     float: left;  
-    img {
-      width: 100%;
-    }       
+    background-image:url('../images/photo.jpg');
+    background-size:cover;
+   
+    @include responsive(small) { 
+      display: none;
+      
+    } 
   }
+ 
 }
 
 /*-------------------------------------------------*/
@@ -223,10 +267,8 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
         opacity: 0.5;
         text-decoration: none;
       }
-    }
-       
+    }       
   }
-
 }
 
 /*-------------------------------------------------*/
@@ -266,6 +308,13 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
       margin:auto;
 
     }
+    .bxslider {
+      height: 300px;
+      
+      img {
+        margin-bottom: 40px;
+      }
+    }
     span {
       margin-left: 20px;
       @mixin anchor {
@@ -301,9 +350,9 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
        max-width: 100%;
       }
     } 
-  }
-  
+  }  
 }
+
 .bx-wrapper .bx-controls-direction a {
   display: none;
 }
@@ -331,6 +380,7 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
   padding-left:150px;
   padding-right:129px;
   padding-bottom: 125px;
+ 
   @include responsive(medium) {
     padding-right:50px;
     padding-left:50px;
@@ -356,30 +406,32 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
       margin-top: 50px;
       width: 100%;
     } 
-        @mixin h4 {
-            font-family: $font-family;
-            width: 438px;
-            font-size: 24px;
-            color: $black;
-            font-weight: 300;               
-            line-height: 3.25;
-            margin-left: 25px;
-          }
-          h4 {
-            @include h4;
-            position: relative;
-          }   
-        .forms {
-          padding-left:63px;
-          padding-right:100px;
-          box-sizing: border-box; 
-        label {
-          margin-top: 20px;
-          color: #666666;
-          font-family: $font-family;
-          text-align: left;
-          font-size: 16px;
-          font-weight: 600;
+    @mixin h4 {
+        font-family: $font-family;
+        max-width: 90%;
+        font-size: 24px;
+        color: $black;
+        font-weight: 300;               
+        line-height: 3.25;
+        margin-left: 25px;
+        border-bottom:1px solid #cfd3e4;
+      }
+      h4 {
+        @include h4;
+        position: relative;
+
+      }   
+      .forms {
+        padding-left:63px;
+        padding-right:100px;
+        box-sizing: border-box; 
+      label {
+        margin-top: 20px;
+        color: #666666;
+        font-family: $font-family;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 600;
       }
       input[type="text"] {
         display: block;
@@ -411,7 +463,14 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
           line-height: 50px;
           font-size: 16px;
           color: #666666;
-          font-weight: normal;
+          font-weight: 600;
+        }
+        input[type="checkbox"] {
+          height: 24px;
+          width: 24px;
+          background:$black;
+          color: $black;
+          margin-top: 15px;
         }
         input[type="submit"] {
           float: right;
@@ -422,26 +481,32 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
           font-weight: bold;
           color: #ff008a;
           width: 90px;
-          height: 48px;        
+          height: 48px;    
+          @include transition(all 0.3s ease-in-out);
+          &:hover {
+            background:#ff008a;
+            color: $white;
+            @include transition(all 0.3s ease-in-out);
+          }    
         } 
       } 
-      .span-pas {
-          position: relative;  
+      .pas {          
+        border-top:1px solid #cfd3e4;
+        padding-top: 15px;
         a {
           font-weight: bold;
           font-size: 16px;
           font-family: $font-family;
           color: #666666;
-          margin-bottom: 60px;    
+          margin-bottom: 60px;  
+              
           &:hover {
             text-decoration: none;
-          }   
-        }      
+          }             
+        }          
       }  
-    }
-    
-  } 
- 
+    }   
+  }  
   .social-media {        
     max-width: 100%;
     float: right;        
@@ -504,14 +569,23 @@ $large-desktop-breakpoint: "screen and (max-width: 1444px)";
         opacity: 0.8;
       }
     }
-    span {
+    .question {
       margin-top: 20px;
-      color: #666666;
-      font-family: $font-family;
-      text-align: left;
-      font-size: 16px;
-      font-weight: 600;
-      position: relative;     
+      border-top:1px solid #cfd3e4;
+      padding-top: 16.5px;
+      a {
+       
+        color: #666666;
+        font-family: $font-family;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 600;
+        position: relative;  
+        &:hover {
+          text-decoration: none;
+        }   
+      }
+     
     }
     @include responsive(small) { 
       margin-top: 50px;
@@ -576,10 +650,13 @@ footer {
       color: $black;
       
     }
+    @include responsive(small) {
+      width: 100%;
+    }
   }  
   .social-media {
     float: right;
-    margin-bottom:204px;
+    margin-bottom:64px;
     a {
       clear: both;
       
@@ -599,6 +676,9 @@ footer {
       &:hover {
         text-decoration: none;
       }      
+    }
+    @include responsive(small) {
+      width: 100%;
     }                 
   } 
 }
