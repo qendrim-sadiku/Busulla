@@ -25,7 +25,7 @@ $base-color:#794bcd;
 $black:#000000;
 $white:#fff;
 $font-family: 'Source Sans Pro', sans-serif;
-$second-font-family: 'Source Sans Pro', sans-serif;
+$second-font-family: 'Roboto', sans-serif;
 
 
 
@@ -33,7 +33,7 @@ $second-font-family: 'Source Sans Pro', sans-serif;
 
 @mixin responsive($breakpoint) {
   @if $breakpoint == "xs-small" {
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
       @content;
     }
   }
@@ -174,10 +174,8 @@ header {
       display: none;
       
     } 
-  }
- 
+  } 
 }
-
 /*-------------------------------------------------*/
 /* =  3.Presentation-section
 /*-------------------------------------------------*/
@@ -223,14 +221,17 @@ header {
 .download-section {
   background-color:#f8f9fb;
   display: flex;
-
   padding-top:300px; 
     .hand-phone {
-        float: left;
-        width: 50%; 
-        img {
-          width: 100%;
-        }
+      float: left;
+      width: 50%; 
+      img {
+        width: 100%;
+      }
+      @include responsive(small) {
+        width: 100%;
+
+      }
     }  
     .info {
       float: right;
@@ -242,9 +243,7 @@ header {
       max-width: 440px;
       color: $black;
       margin-bottom: 50px;
-
      } 
-
      h4 {
       @include heading;
      }
@@ -267,7 +266,13 @@ header {
         opacity: 0.5;
         text-decoration: none;
       }
+    }
+    @include responsive(small) {
+        margin-left: 10px;
     }       
+  }
+  @include responsive(small) {
+    padding-top: 80px;
   }
 }
 
@@ -342,14 +347,23 @@ header {
   .clients-logos {
     margin-top: 124px;
     margin-bottom: 324px;
-
+    padding-left: 140px;
+    padding-right: 140px;
     .our-clients {      
       width: 25%;
       float: left;            
       img {
        max-width: 100%;
       }
+      @include responsive(small) {       
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
     } 
+    @include responsive(small){
+      margin-top: 10px;
+    }
   }  
 }
 
@@ -454,9 +468,20 @@ header {
       .form-components {
         margin-bottom:60px;
         input[type="checkbox"] {
+          position: relative;
           float: left;
-          padding: 20px;
+          cursor: pointer;
           margin-top: 20px;
+         }
+         input[type="checkbox"]:after {
+          position: absolute;
+          content: '';
+          width: 24px;
+          height: 24px;
+          background-color:#ffffff !important;
+          border:2px solid #cfd3e4;
+          border-radius:3px;
+          opacity: 0.5; 
          }
         .label {
           font-family: $font-family;
@@ -487,7 +512,15 @@ header {
             background:#ff008a;
             color: $white;
             @include transition(all 0.3s ease-in-out);
-          }    
+          }  
+          @include responsive(xs-small) {
+            width: 100%;
+            text-align: center;
+          }   
+          @include responsive(small) {
+            width: 100%;
+            text-align: center;
+          }   
         } 
       } 
       .pas {          
@@ -598,8 +631,13 @@ header {
     @include responsive(large) { 
       margin-top: 50px;
       width: 100%;
-    } 
+    }
+
   }
+  @include responsive(xs-small) {
+    padding-left:15px !important;
+    padding-right:15px !important;
+  } 
 }
 
  /*-------------------------------------------------*/
@@ -653,6 +691,7 @@ footer {
     @include responsive(small) {
       width: 100%;
     }
+
   }  
   .social-media {
     float: right;
@@ -677,8 +716,30 @@ footer {
         text-decoration: none;
       }      
     }
+    @include responsive(medium) {
+      width: 50%;
+    }             
+    
     @include responsive(small) {
       width: 100%;
-    }                 
+      img {
+         margin-bottom: 59px !important;
+      }
+    }  
+    @include responsive(xs-small) {
+     text-align: center;
+     .contact {
+      margin-left: 0;
+     }
+      img {
+        margin-left: 0px;
+      }
+    }                       
   } 
+  @include responsive(xs-small) {
+    width: 100%;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+    text-align:center;
+  }       
 }
